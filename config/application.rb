@@ -19,9 +19,10 @@ Bundler.require(*Rails.groups)
 
 module RailsDemo
   class Application < Rails::Application
-    
+    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    
+
+     # Disable generation of helpers, javascripts, css, and view, helper, routing and controller specs
     config.generators do |generate|
       generate.helper false
       generate.assets false
@@ -30,5 +31,6 @@ module RailsDemo
       generate.routing_specs false
       generate.controller_specs false
       generate.system_tests false
+    end
   end
 end
