@@ -5,6 +5,12 @@ Feature: When a Visitor Visits the Page Show a List of Articles
     
 
     Scenario: View list of articles on the landing page 
+        Given the following articles exists in our database
+            | title                 | content                           |
+            | A breaking news item  | Some really breaking action       |
+            | Learning Rails 5      | Build awesome rails applications  | 
         When I visit the site
         Then I should see "A breaking news item"
         And I should see "Some really breaking action"
+        And I should see Leaning Rails 5 
+        And I should see "Build awesome rails applications"
