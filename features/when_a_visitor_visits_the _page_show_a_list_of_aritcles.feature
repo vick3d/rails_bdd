@@ -12,5 +12,5 @@ Feature: When a Visitor Visits the Page Show a List of Articles
         When I visit the site
         Then I should see "A breaking news item"
         And I should see "Some really breaking action"
-        And I should see Leaning Rails 5 
+        And I should see "Learning Rails 5"
         And I should see "Build awesome rails applications"
