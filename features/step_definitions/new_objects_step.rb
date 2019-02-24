@@ -12,17 +12,24 @@
     case site
     when "landing"
       visit root_path
+    when "Article"
+      visit articles_path
     else
       return false
     end
   end
   
-  When("I click {string} link") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
+  When("I click {string} link") do |link|
+    case link
+    when "New Article"
+      visit new_article_path
+    else
+      return false
+    end   
+    end
   
-  When("I fill in {string} with {string}") do |string, string2|
-    pending # Write code here that turns the phrase above into concrete actions
+  When("I fill in {string} with {string}") do |field, value|
+    fill_in field, with: value
   end
   
   When("I click {string} button") do |string|

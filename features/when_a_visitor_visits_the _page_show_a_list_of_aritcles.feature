@@ -9,7 +9,7 @@ Feature: When a Visitor Visits the Page Show a List of Articles
             | title                 | content                           |
             | A breaking news item  | Some really breaking action       |
             | Learning Rails 5      | Build awesome rails applications  | 
-        When I visit the "landing" page
+        When I visit the "Article" page
         Then I should see "A breaking news item"
         And I should see "Some really breaking action"
         And I should see "Learning Rails 5"
