@@ -3,7 +3,7 @@
 
   Given("the following articles exists in our database") do |table|
     table.hashes.each do |article|
-            Article.create!(article)
+      FactoryBot.create(:article,article)
     end        
   end 
 
@@ -34,6 +34,14 @@
   
   When("I click {string} button") do |button|
     click_button button  
+  end
+
+  When("I click on {string} in {string}") do |element, value|
+    article = Article.find_by(title: value)
+    dom_section = "#article_#{article.id}"
+    within(dom_section) do
+      click_on element
+    end
   end
   
 
