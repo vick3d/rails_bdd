@@ -30,5 +30,14 @@ Feature: Visitor can comment on article
             And I click "Create Comment" button
             Then I should see "Viktor"
             And I should see "This doesn't feel good"
+
+
+        Scenario: Visitor adds comment with badly formatted email
+            Given I fill in "Commenter" with "Viktor"
+            And I fill in "Email" with "user@gmail"
+            And I fill in "Body" with "This doesn't feel good"
+            And I click "Create Comment" button
+            And I should see "Email adress is not valid"
+
         
         

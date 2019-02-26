@@ -4,8 +4,13 @@ class CommentsController < ApplicationController
     
     def create
         @article = Article.find(params[:article_id])
-        @comment = @article.comments.create(comment_params)
-        redirect_to article_path(@article)
+        if @article.comments.create(comment_params).invalid?
+            redirect_to article_path(@article)
+            flash[:alert] = "Email adress is not valid"
+        else
+            @comment = @article.comments.create(comment_params)
+            redirect_to article_path(@article)
+        end
     end
 
     def destroy
