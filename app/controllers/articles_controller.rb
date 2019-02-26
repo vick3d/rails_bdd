@@ -1,7 +1,5 @@
 class ArticlesController < ApplicationController
 
-  http_basic_authenticate_with name: "vick3d", password: "supersecret", except: [:index, :show]
-  
   def index
     @articles = Article.all
   end
@@ -22,8 +20,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     
     if @article.save
-      redirect_to @article, success: 'Article successfully created.'
-    else  
+      flash[:success] = 'Article was successfully created.'
+      redirect_to @article
+    else 
       render 'new'
     end 
   end 

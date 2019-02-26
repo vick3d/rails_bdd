@@ -13,12 +13,21 @@ Feature: Visitor can comment on article
             And I visit the "Article" page
             Then I should see "A breaking news item"
             And I should see "Learning Rails 5"
+            And I click on "Show" in "A breaking news item"
 
         Scenario: Visitor can add comment
-            When I click on "Show" in "A breaking news item"
-            And I fill in "Commenter" with "Viktor"
+            Given I fill in "Commenter" with "Viktor"
+            And I fill in "Email" with "user@gmail.com"
             And I fill in "Body" with "This doesn't feel good"
             And I click "Create Comment" button
             Then I should see "Viktor"
             And I should see "This doesn't feel good"
+            And I should see "user@gmail.com"
+
+        Scenario: Visitor adds comment without email
+            Given I fill in "Commenter" with "Viktor"
+            And I fill in "Body" with "This doesn't feel good"
+            Then I should see "Viktor"
+            And I should see "This doesn't feel good"
+        
         
