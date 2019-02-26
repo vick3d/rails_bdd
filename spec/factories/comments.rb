@@ -3,5 +3,6 @@ FactoryBot.define do
     commenter { "MyString" }
     body { "MyText" }
     email { "MyEmail@email.com"}
+    article
   end
 end
