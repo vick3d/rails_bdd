@@ -27,6 +27,7 @@ Feature: Visitor can comment on article
         Scenario: Visitor adds comment without email
             Given I fill in "Commenter" with "Viktor"
             And I fill in "Body" with "This doesn't feel good"
+            And I click "Create Comment" button
             Then I should see "Viktor"
             And I should see "This doesn't feel good"
         
